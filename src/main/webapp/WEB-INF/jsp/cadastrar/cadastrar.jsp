@@ -40,29 +40,29 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Cadastre sua Conta!</h1>
               </div>
-              <form class="user">
+              <form method="post" class="user" action="<c:url value="dashboard/salvausuario"/>">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Primeiro Nome">
+                    <input name="usuario.nome" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Primeiro Nome">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Ãltimo Nome">
+                    <input name="usuario.sobrenome" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Ãltimo Nome">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="E-mail">
+                  <input name="usuario.email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="E-mail">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
+                    <input name="usuario.senha" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
                   </div>
                   <div class="col-sm-6">
                     <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repita a Senha">
                   </div>
                 </div>
-                <a href="<c:url value="dashboard"/>" class="btn btn-primary btn-user btn-block">
+                <button type="submit" class="btn btn-primary btn-user btn-block">
                   Cadastrar Conta
-                </a>
+                </button>
                 <hr>
               </form>
               <hr>
