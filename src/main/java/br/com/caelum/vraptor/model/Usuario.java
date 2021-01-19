@@ -1,22 +1,14 @@
 package br.com.caelum.vraptor.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class Usuario {
+public class Usuario extends Model {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //gerar valor do id automatico na tabela 
-	
-	private Integer id;
 	
 	@NotEmpty // so vale para string, para outras usar @notnull
 	@Size(min=4, max=20) //configurando tamanho char
@@ -52,12 +44,6 @@ public class Usuario {
 	
 	public void setSobrenome(String sobrenome) {
 		this.nome += " " +sobrenome;
-	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
 	}
 	
 }
