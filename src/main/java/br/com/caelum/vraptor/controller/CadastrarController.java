@@ -11,6 +11,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.UsuarioDAO;
 import br.com.caelum.vraptor.model.Usuario;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Path("cadastrar")
@@ -35,7 +36,12 @@ public class CadastrarController {
 	}
 	
 	@Post("salvausuario")
-	public void salvaUsuario(@Valid Usuario usuario) { //@valid faz a validacao 
+	public void salvaUsuario(@Valid Usuario usuario, String confirmaSenha) { //@valid faz a validacao 
+		
+		//validando a confirmacao de senha 
+		boolean asSenhasSaoIguais = confirmaSenha.equals(usuario.getSenha());
+		
+		validator.addIf(!asSenhasSaoIguais, new SimpleMessage("confirmaSenha", "A confirmação esta diferente da senha"));
 		
 		//em caso de erro redirecionar
 		validator.onErrorRedirectTo(this).cadastrar();
