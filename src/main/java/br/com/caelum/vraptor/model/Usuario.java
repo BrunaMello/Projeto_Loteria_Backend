@@ -42,8 +42,4 @@ public class Usuario extends Model {
 		this.senha = senha;
 	}
 	
-	public void setSobrenome(String sobrenome) {
-		this.nome += " " +sobrenome;
-	}
-	
 }

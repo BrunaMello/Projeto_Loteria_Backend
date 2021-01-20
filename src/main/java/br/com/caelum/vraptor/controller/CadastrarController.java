@@ -10,6 +10,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.UsuarioDAO;
+import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.model.Usuario;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
@@ -35,8 +36,14 @@ public class CadastrarController {
 		
 	}
 	
+	@IncludeParameters //inclui todos os parametros que escreveu no metodo
 	@Post("salvausuario")
 	public void salvaUsuario(@Valid Usuario usuario, String confirmaSenha) { //@valid faz a validacao 
+		
+		
+		//nao perder os dados da tela
+		//result.include("usuario", usuario);
+		//result.include(confirmaSenha, confirmaSenha);
 		
 		//validando a confirmacao de senha 
 		boolean asSenhasSaoIguais = confirmaSenha.equals(usuario.getSenha());
