@@ -10,16 +10,16 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Usuario extends Model {
 	
 	
-	@NotEmpty // so vale para string, para outras usar @notnull
-	@Size(min=4, max=20) //configurando tamanho char
+	@NotEmpty(message="{usuario.nome.empty}") // so vale para string, para outras usar @notnull
+	@Size(min=4, max=20, message="{usuario.nome.size}" ) //configurando tamanho char
 	private String nome;
 	
-	@NotEmpty
+	@NotEmpty(message="{usuario.email.empty}")
 	@Email // validando email 
 	private String email;
 	
-	@NotEmpty
-	@Size(min=6, max=20)
+	@NotEmpty(message="{usuario.senha.empty}")
+	@Size(min=6, max=20, message="{usuario.senha.size}")
 	private String senha;
 	
 	

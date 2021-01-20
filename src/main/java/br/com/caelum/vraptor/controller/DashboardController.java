@@ -16,31 +16,10 @@ import br.com.caelum.vraptor.model.Usuario;
 @Controller
 public class DashboardController {
 	
-	//injetar usuario pelo vraptor
-	@Inject EntityManager em; 
-	
-	//injetar usuario para o dashboard 
-	@Inject Result result;
-	
-	//injetar usuario DAO
-	@Inject UsuarioDAO usuarioDao;
-	
-	
 	@Get("")
 	public void dashboard() {
 		
 	}
 	
-	@Post("salvausuario")
-	public void salvaUsuario(Usuario usuario) {
-		
-		//salvar usuario no banco
-		usuarioDao.insertOrUpdate(usuario);
-		
-				
-		//apos salvar o usuario direcionar para o dashboard
-		result.redirectTo(DashboardController.class).dashboard();
-				
-	}
-
+	
 }
